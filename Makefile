@@ -1,12 +1,17 @@
 UUID = keep-awake@keep-awake-gnome
 EXTENSION_DIR = $(HOME)/.local/share/gnome-shell/extensions/$(UUID)
 
-.PHONY: install uninstall zip clean
+.PHONY: install uninstall dev zip clean
 
 install:
 	mkdir -p $(EXTENSION_DIR)
 	cp -r extension.js metadata.json icons $(EXTENSION_DIR)/
 	@echo "Installed. Log out and back in, then run:"
+	@echo "  gnome-extensions enable $(UUID)"
+
+dev:
+	ln -sfn $(CURDIR) $(EXTENSION_DIR)
+	@echo "Symlinked. Edits to this repo are picked up on next shell restart."
 	@echo "  gnome-extensions enable $(UUID)"
 
 uninstall:
