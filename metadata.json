@@ -4,5 +4,5 @@
     "description": "Quick Settings toggle that prevents suspend on lid close, disables idle sleep, and turns off WiFi power save — so background processes (like Claude Code) keep running with a stable network connection even when the laptop lid is closed.",
     "shell-version": ["46", "47"],
     "version": 1,
-    "url": "https://github.com/guillaumekln/keep-awake-gnome"
+    "url": "https://github.com/guillaumeboniface/keep-awake-gnome"
 }

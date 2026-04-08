@@ -31,7 +31,7 @@ Existing caffeine extensions only toggle GNOME power settings, which [systemd-lo
 ### From source
 
 ```bash
-git clone https://github.com/guillaumekln/keep-awake-gnome.git
+git clone https://github.com/guillaumeboniface/keep-awake-gnome.git
 cd keep-awake-gnome
 make install
 ```
