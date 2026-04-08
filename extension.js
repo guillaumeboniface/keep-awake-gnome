@@ -220,10 +220,11 @@ class KeepAwakeToggle extends QuickToggle {
             return;
         this._destroying = true;
 
-        // On extension disable/shell restart: release the fd-based inhibitor
-        // (it won't survive process exit anyway). The state file on disk
-        // means we'll re-acquire it on next enable().
-        this._releaseLogindInhibitor();
+        // Do NOT release the logind inhibitor here. GNOME Shell calls
+        // disable() → destroy() during suspend preparation, and releasing
+        // the inhibitor at that point allows logind to suspend immediately.
+        // The fd will be closed by the kernel if the process exits, and
+        // re-acquired on next enable() via the persisted state file.
         super.destroy();
     }
 });
